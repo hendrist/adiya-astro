@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+/*
+  COPYWRITING NOTE:
+  Teks di bagian "Tentang Kami" dan "Nilai Kami" di bawah adalah draft awal.
+  Perbarui sesuai cerita dan tone bisnis yang diinginkan.
+*/
+
+const values = [
+  {
+    title: 'Kualitas Tanpa Kompromi',
+    desc: 'Setiap order diproses dengan standar yang sama — dari pesanan 5 pcs hingga ribuan meter. Kami tidak menurunkan standar untuk efisiensi.',
+  },
+  {
+    title: 'Harga Langsung dari Sumber',
+    desc: 'Sebagai pelaku produksi langsung, kami menawarkan harga yang kompetitif tanpa markup distributor.',
+  },
+  {
+    title: 'Dukungan Lokal Makassar',
+    desc: 'Kami bangga sebagai bisnis lokal Makassar yang melayani pelanggan dari seluruh Indonesia dengan sentuhan personal.',
+  },
+  {
+    title: 'Desain Bebas Custom',
+    desc: 'Tidak ada batasan motif atau warna. Tim kami siap membantu mewujudkan desain apapun yang Anda bayangkan.',
+  },
+];
+
+const contacts = [
+  {
+    label: 'WhatsApp',
+    value: '0811 142 111',
+    href: 'https://wa.me/62811142111',
+    icon: `<svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>`,
+  },
+  {
+    label: 'Alamat',
+    value: 'Jl. Dg Siradju Lr 2, Bara Baraya Utara, Makassar',
+    href: 'https://maps.google.com/?q=Jl+Dg+Siradju+Lr+2+Bara+Baraya+Utara+Makassar',
+    icon: `<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  },
+];
+---
+
+<BaseLayout
+  title="Tentang Kami"
+  description="Mengenal Adiya Printex — jasa custom print kain dan hijab di Makassar. Digital Sublime Printing dan Manual Screen Printing dengan kualitas premium dan harga kompetitif."
+>
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Page Header -->
+    <section class="bg-navy pt-12 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <nav class="text-cream/50 text-sm mb-6 flex items-center gap-2">
+          <a href="/" class="hover:text-cream transition-colors">Beranda</a>
+          <span>/</span>
+          <span class="text-cream">Tentang Kami</span>
+        </nav>
+        <div class="max-w-2xl">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Tentang Kami
+          </h1>
+          <p class="text-cream/80 text-base sm:text-lg leading-relaxed">
+            Adiya Printex — mitra terpercaya untuk kebutuhan custom print
+            kain dan hijab Anda di Makassar.
+          </p>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Cerita Bisnis -->
+    <section class="bg-white py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Teks -->
+          <div>
+            <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-3">Siapa Kami</p>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-6 leading-snug">
+              Percetakan Kain & Hijab Custom di Jantung Makassar
+            </h2>
+            {/* ↓ DRAFT — perbarui dengan copywriting final */}
+            <div class="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+              <p>
+                Adiya Printex adalah usaha printing kain dan hijab yang berdiri di Makassar,
+                melayani pelanggan dari berbagai penjuru Indonesia. Kami mengkhususkan diri
+                pada dua layanan utama: <strong class="text-navy">Digital Sublime Printing</strong> untuk
+                hasil warna tajam dengan MOQ rendah, dan <strong class="text-navy">Manual Screen Printing</strong> untuk
+                produksi volume besar dengan daya tahan maksimal.
+              </p>
+              <p>
+                Berawal dari kecintaan terhadap industri tekstil lokal, kami berkomitmen
+                menghadirkan kualitas cetak premium yang selama ini hanya bisa didapatkan
+                dari kota-kota besar — kini tersedia langsung di Makassar, dengan harga
+                yang langsung dari sumber tanpa markup distributor.
+              </p>
+              <p>
+                Kami melayani brand fashion lokal, pengusaha hijab, komunitas, hingga
+                perorangan yang ingin mewujudkan desain kain impian mereka.
+              </p>
+            </div>
+            {/* ↑ DRAFT — perbarui dengan copywriting final */}
+          </div>
+
+          <!-- Logo / Visual -->
+          <div class="flex items-center justify-center">
+            <div class="w-64 h-64 rounded-3xl bg-navy flex items-center justify-center shadow-2xl">
+              <img
+                src="/logo.png"
+                alt="Logo Adiya Printex"
+                class="w-48 h-48 object-contain brightness-0 invert"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div
+                class="hidden w-48 h-48 flex-col items-center justify-center gap-2"
+                id="about-logo-fallback"
+              >
+                <span class="text-6xl">⚓</span>
+                <span class="text-white font-bold text-lg text-center">Adiya Printex</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Nilai-Nilai -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Yang Kami Pegang</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy">Nilai-Nilai Kami</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {values.map((item) => (
+            <div class="bg-white rounded-2xl p-7 border border-gray-100 hover:border-gold hover:shadow-md transition-all duration-300">
+              <div class="w-8 h-8 bg-navy rounded-lg flex items-center justify-center mb-4">
+                <span class="text-gold font-bold text-sm">✦</span>
+              </div>
+              <h3 class="font-bold text-navy mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Lokasi & Kontak -->
+    <section class="bg-white py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Temukan Kami</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy">Lokasi & Kontak</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+          <!-- Peta -->
+          <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm h-80 lg:h-96 bg-gray-100">
+            <iframe
+              src="https://maps.google.com/maps?q=Jl+Dg+Siradju+Lr+2+Bara+Baraya+Utara+Makassar&output=embed&z=16"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Lokasi Adiya Printex"
+            ></iframe>
+          </div>
+
+          <!-- Info Kontak -->
+          <div class="space-y-6">
+            {contacts.map((c) => (
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-gold hover:shadow-md transition-all duration-300 group"
+              >
+                <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center text-gold shrink-0 group-hover:bg-gold group-hover:text-navy transition-colors duration-300">
+                  <Fragment set:html={c.icon} />
+                </div>
+                <div>
+                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">{c.label}</p>
+                  <p class="text-navy font-semibold text-sm sm:text-base">{c.value}</p>
+                </div>
+              </a>
+            ))}
+
+            <!-- Jam Operasional -->
+            <div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100">
+              <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center text-gold shrink-0">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Jam Operasional</p>
+                <p class="text-navy font-semibold text-sm">Senin – Sabtu</p>
+                <p class="text-gray-500 text-sm">08.00 – 17.00 WITA</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy py-14">
+      <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Siap Berkolaborasi?</h2>
+        <p class="text-cream/80 text-sm mb-8">
+          Tim kami senang mendengar kebutuhan Anda. Hubungi kami sekarang untuk konsultasi gratis.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+ingin+mengetahui+lebih+lanjut+tentang+layanan+Anda."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Hubungi Kami Sekarang
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton message="Halo+Adiya+Printex,+saya+ingin+mengetahui+lebih+lanjut+tentang+layanan+Anda." />
+</BaseLayout>

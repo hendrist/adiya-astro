@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+/*
+  CARA MENAMBAH FOTO:
+  1. Letakkan file foto di folder: public/images/gallery/
+  2. Ubah `src` dari null menjadi path file, contoh: '/images/gallery/mesin-digital-sublime.jpg'
+  3. Hapus prop `placeholder: true` dari item tersebut
+
+  Untuk menambah foto baru: copy salah satu objek di bawah dan tambahkan ke array yang sesuai.
+*/
+
+interface GalleryItem {
+  id: string;
+  title: string;
+  desc: string;
+  src: string | null;
+  file: string;
+  span?: 'wide' | 'normal';
+}
+
+const peralatanProses: GalleryItem[] = [
+  {
+    id: 'mesin-digital',
+    title: 'Mesin Digital Sublime Printing',
+    desc: 'Mesin cetak digital sublimasi beresolusi tinggi untuk hasil warna yang tajam dan detail.',
+    src: null,
+    file: 'public/images/gallery/mesin-digital-sublime.jpg',
+    span: 'wide',
+  },
+  {
+    id: 'heat-press',
+    title: 'Heat Press Roll to Roll',
+    desc: 'Mesin heat press sistem roll-to-roll untuk proses transfer tinta ke kain secara merata.',
+    src: null,
+    file: 'public/images/gallery/heat-press-roll.jpg',
+  },
+  {
+    id: 'laser-cut',
+    title: 'Laser Cut Tepian Kain',
+    desc: 'Proses laser cutting untuk menghasilkan tepi kain yang rapi, presisi, dan tidak mudah berjumbai.',
+    src: null,
+    file: 'public/images/gallery/laser-cut-tepian.jpg',
+  },
+];
+
+const hasilCetak: GalleryItem[] = [
+  {
+    id: 'meja-screen',
+    title: 'Meja Manual Screen Printing',
+    desc: 'Meja sablon panjang untuk proses manual screen printing yang konsisten di setiap lembar kain.',
+    src: null,
+    file: 'public/images/gallery/meja-screen-printing.jpg',
+    span: 'wide',
+  },
+  {
+    id: 'kain-batik',
+    title: 'Kain Motif Batik Hasil Print',
+    desc: 'Contoh hasil cetak kain motif batik dengan teknik manual screen printing — warna solid dan tahan lama.',
+    src: null,
+    file: 'public/images/gallery/kain-motif-batik.jpg',
+  },
+];
+
+const allEmpty = (items: GalleryItem[]) => items.every((i) => i.src === null);
+---
+
+<BaseLayout
+  title="Gallery"
+  description="Galeri foto mesin, proses produksi, dan hasil cetak Adiya Printex Makassar — Digital Sublime Printing dan Manual Screen Printing."
+>
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Page Header -->
+    <section class="bg-navy pt-12 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <nav class="text-cream/50 text-sm mb-6 flex items-center gap-2">
+          <a href="/" class="hover:text-cream transition-colors">Beranda</a>
+          <span>/</span>
+          <span class="text-cream">Gallery</span>
+        </nav>
+        <div class="max-w-2xl">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Gallery
+          </h1>
+          <p class="text-cream/80 text-base sm:text-lg leading-relaxed">
+            Lihat langsung mesin, proses produksi, dan hasil cetak kami —
+            bukti nyata kualitas yang kami janjikan.
+          </p>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Seksi 1: Peralatan & Proses -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="mb-10">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-1">Fasilitas Produksi</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy">Peralatan & Proses</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {peralatanProses.map((item) => (
+            <div class={item.span === 'wide' ? 'sm:col-span-2' : ''}>
+              {item.src ? (
+                /* Foto sudah tersedia */
+                <figure class="rounded-2xl overflow-hidden bg-gray-100 group cursor-zoom-in">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${item.span === 'wide' ? 'h-80 sm:h-96' : 'h-64'}`}
+                    loading="lazy"
+                  />
+                  <figcaption class="px-4 py-3 bg-white border-t border-gray-100">
+                    <p class="font-semibold text-navy text-sm">{item.title}</p>
+                    <p class="text-gray-500 text-xs mt-0.5">{item.desc}</p>
+                  </figcaption>
+                </figure>
+              ) : (
+                /* Placeholder — foto belum tersedia */
+                <div
+                  class={`rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center gap-4 text-center p-8 ${item.span === 'wide' ? 'h-80 sm:h-96' : 'h-64'}`}
+                >
+                  <div class="w-14 h-14 rounded-full bg-cream flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-navy text-sm mb-1">{item.title}</p>
+                    <p class="text-gray-500 text-xs leading-relaxed max-w-xs">{item.desc}</p>
+                    <code class="inline-block mt-3 text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded font-mono">
+                      {item.file}
+                    </code>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <hr class="border-gray-100" />
+    </div>
+
+    <!-- Seksi 2: Hasil Cetak -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="mb-10">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-1">Portofolio</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy">Hasil Cetak</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {hasilCetak.map((item) => (
+            <div class={item.span === 'wide' ? 'sm:col-span-2' : ''}>
+              {item.src ? (
+                <figure class="rounded-2xl overflow-hidden bg-gray-100 group cursor-zoom-in">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${item.span === 'wide' ? 'h-80 sm:h-96' : 'h-64'}`}
+                    loading="lazy"
+                  />
+                  <figcaption class="px-4 py-3 bg-white border-t border-gray-100">
+                    <p class="font-semibold text-navy text-sm">{item.title}</p>
+                    <p class="text-gray-500 text-xs mt-0.5">{item.desc}</p>
+                  </figcaption>
+                </figure>
+              ) : (
+                <div
+                  class={`rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center gap-4 text-center p-8 ${item.span === 'wide' ? 'h-80 sm:h-96' : 'h-64'}`}
+                >
+                  <div class="w-14 h-14 rounded-full bg-cream flex items-center justify-center shrink-0">
+                    <svg class="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-navy text-sm mb-1">{item.title}</p>
+                    <p class="text-gray-500 text-xs leading-relaxed max-w-xs">{item.desc}</p>
+                    <code class="inline-block mt-3 text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded font-mono">
+                      {item.file}
+                    </code>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner "Foto Segera Hadir" — hanya tampil kalau semua masih placeholder -->
+    {(allEmpty(peralatanProses) && allEmpty(hasilCetak)) && (
+      <section class="bg-cream/50 py-10">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+          <p class="text-navy font-semibold mb-1">📸 Foto Segera Hadir</p>
+          <p class="text-gray-600 text-sm">
+            Kami sedang menyiapkan dokumentasi terbaik dari proses produksi dan hasil cetak kami.
+            Kunjungi kembali halaman ini dalam waktu dekat.
+          </p>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section class="bg-navy py-14">
+      <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Tertarik Melihat Sampel?</h2>
+        <p class="text-cream/80 text-sm mb-8">
+          Hubungi kami via WhatsApp untuk melihat lebih banyak contoh hasil cetak atau meminta sampel kain.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+ingin+melihat+contoh+hasil+cetak+dan+sampel+kain."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Minta Sampel via WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton message="Halo+Adiya+Printex,+saya+ingin+melihat+contoh+hasil+cetak+dan+sampel+kain." />
+</BaseLayout>

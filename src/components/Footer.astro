@@ -1,0 +1,114 @@
+---
+const year = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Digital Sublime Printing', href: '/services/digital-sublime' },
+  { label: 'Manual Screen Printing', href: '/services/manual-screen-printing' },
+  { label: 'Pricelist', href: '/pricelist' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Tentang Kami', href: '/about' },
+];
+---
+
+<footer class="bg-navy text-cream mt-auto">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Kolom 1: Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <img
+            src="/logo.png"
+            alt="Adiya Printex"
+            class="h-10 w-auto brightness-0 invert"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span
+            class="hidden items-center gap-1 font-bold text-xl text-white"
+            id="footer-logo-fallback"
+          >
+            <span class="text-gold">⚓</span> Adiya Printex
+          </span>
+        </a>
+        <p class="text-cream/80 text-sm leading-relaxed">
+          Jasa custom print kain dan hijab di Makassar. Kualitas premium, MOQ rendah, pengerjaan cepat.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+ingin+bertanya+tentang+layanan+printing."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-5 px-4 py-2.5 bg-gold text-navy text-sm font-bold rounded-md hover:bg-gold/90 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Chat WhatsApp
+        </a>
+      </div>
+
+      <!-- Kolom 2: Quick Links -->
+      <div>
+        <h3 class="text-gold font-semibold text-sm uppercase tracking-wider mb-4">
+          Navigasi
+        </h3>
+        <ul class="space-y-2.5">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-cream/80 text-sm hover:text-gold transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Kontak -->
+      <div>
+        <h3 class="text-gold font-semibold text-sm uppercase tracking-wider mb-4">
+          Kontak & Lokasi
+        </h3>
+        <ul class="space-y-4 text-sm text-cream/80">
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+            </svg>
+            <a
+              href="https://wa.me/62811142111"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-gold transition-colors"
+            >
+              0811 142 111
+            </a>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <address class="not-italic leading-relaxed">
+              Jl. Dg Siradju Lr 2,<br />
+              Bara Baraya Utara,<br />
+              Makassar
+            </address>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-cream/50">
+      <p>&copy; {year} Adiya Printex. Hak cipta dilindungi.</p>
+      <p>Custom Print Kain & Hijab — Makassar</p>
+    </div>
+  </div>
+</footer>

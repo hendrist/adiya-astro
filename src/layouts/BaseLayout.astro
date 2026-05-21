@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Adiya Printex — Jasa custom print kain dan hijab berkualitas di Makassar. Digital Sublime Printing dan Manual Screen Printing dengan MOQ rendah dan pengerjaan cepat.',
+} = Astro.props;
+
+const fullTitle = title === 'Home' ? 'Adiya Printex — Custom Print Kain & Hijab Makassar' : `${title} — Adiya Printex`;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{fullTitle}</title>
+  </head>
+  <body class="bg-white text-gray-800 min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+const fabrics = [
+  { name: 'Hijab Voal', unit: 'pcs', size: '110×110 cm', price: 40000, moq: '200m' },
+  { name: 'Katun Rayon', unit: 'm', size: 'Per meter lari', price: 40000, moq: '200m' },
+  { name: 'Prima', unit: 'm', size: 'Per meter lari', price: 44000, moq: '200m' },
+  { name: 'Poplin', unit: 'm', size: 'Per meter lari', price: 50000, moq: '200m' },
+  { name: 'Berkolisima', unit: 'm', size: 'Per meter lari', price: 55000, moq: '200m' },
+  { name: 'Primis', unit: 'm', size: 'Per meter lari', price: 57000, moq: '200m' },
+  { name: 'Dolby', unit: 'm', size: 'Per meter lari', price: 58000, moq: '200m' },
+  { name: 'Satin', unit: 'm', size: 'Per meter lari', price: 58000, moq: '200m' },
+  { name: 'Polino', unit: 'm', size: 'Per meter lari', price: 44000, moq: '200m' },
+  { name: 'Sanwos', unit: 'm', size: 'Per meter lari', price: 44000, moq: '200m' },
+];
+
+const advantages = [
+  { title: 'Tinta Meresap ke Serat', desc: 'Tinta tidak hanya menempel di permukaan — meresap ke dalam serat kain sehingga hasil lebih awet dan tidak mudah retak.' },
+  { title: 'Durabilitas Maksimal', desc: 'Cocok untuk produk yang sering dicuci seperti seragam, kaos, dan kain panjang kebutuhan harian.' },
+  { title: 'Cocok untuk Order Besar', desc: 'Biaya per unit semakin efisien untuk order dalam volume besar — ideal untuk seragam komunitas atau brand fashion.' },
+  { title: 'Warna Solid & Konsisten', desc: 'Setiap lembar menghasilkan warna yang konsisten dan seragam, sangat penting untuk produksi dalam jumlah banyak.' },
+];
+
+const steps = [
+  { no: '01', title: 'Kirim Desain & Konsultasi', desc: 'Kirimkan file desain dan spesifikasi (jenis kain, jumlah, warna) via WhatsApp untuk konsultasi awal.' },
+  { no: '02', title: 'Pembuatan Film Sablon', desc: 'Tim kami menyiapkan film dan screen sesuai desain. Tahap ini berlangsung 1–2 hari kerja.' },
+  { no: '03', title: 'Proses Cetak', desc: 'Produksi sablon manual berlangsung 7–14 hari kerja tergantung jumlah dan kompleksitas desain.' },
+  { no: '04', title: 'QC & Pengiriman', desc: 'Setiap produk diperiksa kualitasnya sebelum dikemas dan dikirim ke seluruh Indonesia.' },
+];
+
+const formatRupiah = (n: number) =>
+  'Rp ' + n.toLocaleString('id-ID');
+---
+
+<BaseLayout
+  title="Manual Screen Printing"
+  description="Layanan Manual Screen Printing untuk hijab, kain, dan seragam di Makassar. MOQ 200m, tinta meresap ke serat, tahan lama, proses 7–14 hari kerja."
+>
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Page Header -->
+    <section class="bg-navy pt-12 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Breadcrumb -->
+        <nav class="text-cream/50 text-sm mb-6 flex items-center gap-2">
+          <a href="/" class="hover:text-cream transition-colors">Beranda</a>
+          <span>/</span>
+          <span class="text-cream">Manual Screen Printing</span>
+        </nav>
+        <div class="max-w-2xl">
+          <span class="inline-block bg-white/10 text-cream text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider border border-white/20">
+            Sablon Tradisional
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Manual Screen<br />Printing
+          </h1>
+          <p class="text-cream/80 text-base sm:text-lg leading-relaxed">
+            Teknik cetak sablon manual dengan tinta yang meresap ke dalam serat
+            kain — menghasilkan warna solid, konsisten, dan ketahanan yang
+            lebih lama untuk kebutuhan produksi volume besar.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">MOQ 200 meter</span>
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">7–14 hari kerja</span>
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">Tahan lama & solid</span>
+          </div>
+        </div>
+      </div>
+      <!-- Wave -->
+      <div class="absolute bottom-0 left-0 w-full" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-10 text-center">
+          Keunggulan Manual Screen Printing
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {advantages.map((item) => (
+            <div class="p-6 rounded-2xl bg-cream/40 hover:bg-cream transition-colors duration-300">
+              <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center mb-4">
+                <span class="text-gold font-bold text-lg">✦</span>
+              </div>
+              <h3 class="font-bold text-navy mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabel Harga -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-3">Jenis Kain & Harga</h2>
+          <p class="text-gray-500 text-sm">MOQ berlaku 200 meter untuk semua jenis kain. Harga belum termasuk ongkos kirim.</p>
+        </div>
+
+        <!-- Desktop table -->
+        <div class="hidden sm:block overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <table class="w-full text-sm">
+            <thead class="bg-navy text-cream">
+              <tr>
+                <th class="text-left px-6 py-4 font-semibold">Jenis Kain</th>
+                <th class="text-center px-6 py-4 font-semibold">Ukuran / Satuan</th>
+                <th class="text-center px-6 py-4 font-semibold">MOQ</th>
+                <th class="text-right px-6 py-4 font-semibold">Harga</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              {fabrics.map((f, i) => (
+                <tr class={`hover:bg-cream/30 transition-colors ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
+                  <td class="px-6 py-4 font-medium text-navy">{f.name}</td>
+                  <td class="px-6 py-4 text-center text-gray-600">{f.size}</td>
+                  <td class="px-6 py-4 text-center text-gray-600">{f.moq}</td>
+                  <td class="px-6 py-4 text-right font-bold text-navy">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="sm:hidden space-y-3">
+          {fabrics.map((f) => (
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-navy">{f.name}</h3>
+                <span class="font-bold text-navy text-right">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></span>
+              </div>
+              <div class="flex gap-4 text-sm text-gray-500">
+                <span>MOQ: {f.moq}</span>
+                <span>·</span>
+                <span>{f.size}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-center text-xs text-gray-400 mt-4">
+          * Harga sewaktu-waktu dapat berubah. Hubungi kami untuk konfirmasi harga terkini.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proses Pengerjaan -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-12 text-center">
+          Proses Pengerjaan
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, i) => (
+            <div class="relative flex flex-col items-center text-center">
+              {i < steps.length - 1 && (
+                <div class="hidden lg:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px bg-gray-200 -z-0"></div>
+              )}
+              <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center text-gold font-bold text-lg mb-4 z-10 shrink-0 shadow-md">
+                {step.no}
+              </div>
+              <h3 class="font-bold text-navy mb-2">{step.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Perbandingan dengan Digital Sublime -->
+    <section class="bg-cream/40 py-14">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gray-500 text-sm mb-2">Tidak yakin mana yang cocok?</p>
+        <h2 class="text-xl font-bold text-navy mb-4">Coba juga Digital Sublime Printing</h2>
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          Untuk desain penuh warna, gradasi, atau hijab motif dengan MOQ rendah mulai 5 pcs —
+          Digital Sublime Printing mungkin lebih sesuai kebutuhan Anda.
+        </p>
+        <a
+          href="/services/digital-sublime"
+          class="inline-flex items-center gap-2 px-6 py-2.5 border-2 border-navy text-navy font-semibold text-sm rounded-lg hover:bg-navy hover:text-white transition-all"
+        >
+          Lihat Digital Sublime Printing
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy py-14 sm:py-20">
+      <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+          Siap Mulai Produksi?
+        </h2>
+        <p class="text-cream/80 text-sm sm:text-base mb-8">
+          Hubungi kami untuk konsultasi kebutuhan sablon Anda. Kami siap memberikan penawaran terbaik.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+tertarik+dengan+layanan+Manual+Screen+Printing.+Boleh+saya+konsultasi%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Konsultasi via WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton message="Halo+Adiya+Printex,+saya+tertarik+dengan+layanan+Manual+Screen+Printing.+Boleh+saya+konsultasi%3F" />
+</BaseLayout>

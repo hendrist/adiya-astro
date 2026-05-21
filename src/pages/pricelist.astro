@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const digitalSublime = [
+  { name: 'Hijab Poly PE', size: '110×110 cm', unit: 'pcs', price: 45000, moq: '5 pcs' },
+  { name: 'Hijab Voal Signature', size: '110×110 cm', unit: 'pcs', price: 65000, moq: '5 pcs' },
+  { name: 'BSY / Besway', size: 'Per meter persegi', unit: 'm²', price: 70000, moq: '5 pcs' },
+  { name: 'Dobby', size: 'Per meter lari', unit: 'm', price: 75000, moq: '5 pcs' },
+  { name: 'Toyobo', size: 'Per meter lari', unit: 'm', price: 67000, moq: '5 pcs' },
+  { name: 'Ero Golden', size: 'Per meter lari', unit: 'm', price: 70000, moq: '5 pcs' },
+  { name: 'Oxford', size: 'Per meter lari', unit: 'm', price: 75000, moq: '5 pcs' },
+];
+
+const screenPrinting = [
+  { name: 'Hijab Voal', size: '110×110 cm', unit: 'pcs', price: 40000, moq: '200m' },
+  { name: 'Katun Rayon', size: 'Per meter lari', unit: 'm', price: 40000, moq: '200m' },
+  { name: 'Prima', size: 'Per meter lari', unit: 'm', price: 44000, moq: '200m' },
+  { name: 'Poplin', size: 'Per meter lari', unit: 'm', price: 50000, moq: '200m' },
+  { name: 'Berkolisima', size: 'Per meter lari', unit: 'm', price: 55000, moq: '200m' },
+  { name: 'Primis', size: 'Per meter lari', unit: 'm', price: 57000, moq: '200m' },
+  { name: 'Dolby', size: 'Per meter lari', unit: 'm', price: 58000, moq: '200m' },
+  { name: 'Satin', size: 'Per meter lari', unit: 'm', price: 58000, moq: '200m' },
+  { name: 'Polino', size: 'Per meter lari', unit: 'm', price: 44000, moq: '200m' },
+  { name: 'Sanwos', size: 'Per meter lari', unit: 'm', price: 44000, moq: '200m' },
+];
+
+const formatRupiah = (n: number) => 'Rp ' + n.toLocaleString('id-ID');
+---
+
+<BaseLayout
+  title="Pricelist"
+  description="Daftar harga Digital Sublime Printing dan Manual Screen Printing Adiya Printex Makassar. MOQ rendah, harga kompetitif langsung dari pabrik."
+>
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Page Header -->
+    <section class="bg-navy pt-12 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <nav class="text-cream/50 text-sm mb-6 flex items-center gap-2">
+          <a href="/" class="hover:text-cream transition-colors">Beranda</a>
+          <span>/</span>
+          <span class="text-cream">Pricelist</span>
+        </nav>
+        <div class="max-w-2xl">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Daftar Harga
+          </h1>
+          <p class="text-cream/80 text-base sm:text-lg leading-relaxed">
+            Harga transparan untuk semua layanan printing kami. Tidak ada biaya
+            tersembunyi — apa yang tertera adalah harga yang Anda bayarkan.
+          </p>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Disclaimer Banner -->
+    <section class="bg-gold/10 border-b border-gold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-start gap-3">
+        <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm text-gray-700">
+          <span class="font-semibold text-navy">Catatan:</span> Harga sewaktu-waktu dapat berubah tanpa pemberitahuan sebelumnya. Hubungi kami via WhatsApp untuk konfirmasi harga terkini sebelum melakukan pemesanan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tab Pricelist -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <!-- Tab Buttons -->
+        <div class="flex gap-2 mb-10 border-b border-gray-200">
+          <button
+            id="tab-digital"
+            class="tab-btn px-5 py-3 text-sm font-semibold border-b-2 border-navy text-navy -mb-px transition-colors"
+            data-target="panel-digital"
+          >
+            🎨 Digital Sublime Printing
+          </button>
+          <button
+            id="tab-screen"
+            class="tab-btn px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 hover:text-navy -mb-px transition-colors"
+            data-target="panel-screen"
+          >
+            🖨️ Manual Screen Printing
+          </button>
+        </div>
+
+        <!-- Panel: Digital Sublime -->
+        <div id="panel-digital" class="tab-panel">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 class="text-xl font-bold text-navy">Digital Sublime Printing</h2>
+              <p class="text-gray-500 text-sm mt-1">MOQ mulai 5 pcs · Proses 5–7 hari kerja</p>
+            </div>
+            <a
+              href="/services/digital-sublime"
+              class="text-sm text-navy font-semibold underline underline-offset-2 hover:text-gold transition-colors shrink-0"
+            >
+              Info lengkap layanan →
+            </a>
+          </div>
+
+          <!-- Desktop table -->
+          <div class="hidden sm:block overflow-hidden rounded-2xl border border-gray-200 shadow-sm mb-4">
+            <table class="w-full text-sm">
+              <thead class="bg-navy text-cream">
+                <tr>
+                  <th class="text-left px-6 py-4 font-semibold">Jenis Kain</th>
+                  <th class="text-center px-6 py-4 font-semibold">Ukuran / Satuan</th>
+                  <th class="text-center px-6 py-4 font-semibold">MOQ</th>
+                  <th class="text-right px-6 py-4 font-semibold">Harga</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                {digitalSublime.map((f, i) => (
+                  <tr class={`hover:bg-cream/30 transition-colors ${i % 2 !== 0 ? 'bg-gray-50/50' : ''}`}>
+                    <td class="px-6 py-4 font-medium text-navy">{f.name}</td>
+                    <td class="px-6 py-4 text-center text-gray-600">{f.size}</td>
+                    <td class="px-6 py-4 text-center text-gray-600">{f.moq}</td>
+                    <td class="px-6 py-4 text-right font-bold text-navy">
+                      {formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile cards -->
+          <div class="sm:hidden space-y-3 mb-4">
+            {digitalSublime.map((f) => (
+              <div class="bg-white rounded-xl border border-gray-200 p-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h3 class="font-bold text-navy">{f.name}</h3>
+                  <span class="font-bold text-navy">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></span>
+                </div>
+                <p class="text-sm text-gray-500">MOQ: {f.moq} · {f.size}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Panel: Screen Printing -->
+        <div id="panel-screen" class="tab-panel hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 class="text-xl font-bold text-navy">Manual Screen Printing</h2>
+              <p class="text-gray-500 text-sm mt-1">MOQ 200 meter · Proses 7–14 hari kerja</p>
+            </div>
+            <a
+              href="/services/manual-screen-printing"
+              class="text-sm text-navy font-semibold underline underline-offset-2 hover:text-gold transition-colors shrink-0"
+            >
+              Info lengkap layanan →
+            </a>
+          </div>
+
+          <!-- Desktop table -->
+          <div class="hidden sm:block overflow-hidden rounded-2xl border border-gray-200 shadow-sm mb-4">
+            <table class="w-full text-sm">
+              <thead class="bg-navy text-cream">
+                <tr>
+                  <th class="text-left px-6 py-4 font-semibold">Jenis Kain</th>
+                  <th class="text-center px-6 py-4 font-semibold">Ukuran / Satuan</th>
+                  <th class="text-center px-6 py-4 font-semibold">MOQ</th>
+                  <th class="text-right px-6 py-4 font-semibold">Harga</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                {screenPrinting.map((f, i) => (
+                  <tr class={`hover:bg-cream/30 transition-colors ${i % 2 !== 0 ? 'bg-gray-50/50' : ''}`}>
+                    <td class="px-6 py-4 font-medium text-navy">{f.name}</td>
+                    <td class="px-6 py-4 text-center text-gray-600">{f.size}</td>
+                    <td class="px-6 py-4 text-center text-gray-600">{f.moq}</td>
+                    <td class="px-6 py-4 text-right font-bold text-navy">
+                      {formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile cards -->
+          <div class="sm:hidden space-y-3 mb-4">
+            {screenPrinting.map((f) => (
+              <div class="bg-white rounded-xl border border-gray-200 p-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h3 class="font-bold text-navy">{f.name}</h3>
+                  <span class="font-bold text-navy">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></span>
+                </div>
+                <p class="text-sm text-gray-500">MOQ: {f.moq} · {f.size}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Catatan bawah tabel -->
+        <p class="text-xs text-gray-400 mt-2">
+          * Harga di atas belum termasuk ongkos kirim dan dapat berubah sewaktu-waktu.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slot Gambar Pricelist -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-navy mb-2">Pricelist dalam Format Gambar</h2>
+          <p class="text-gray-500 text-sm">Versi gambar untuk kemudahan berbagi via WhatsApp dan media sosial.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <!-- Slot 1: Digital Sublime -->
+          <div class="rounded-2xl border-2 border-dashed border-gray-300 bg-white aspect-[3/4] flex flex-col items-center justify-center gap-3 text-gray-400 hover:border-navy hover:text-navy transition-colors p-6 text-center">
+            <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <p class="font-semibold text-sm">Pricelist Digital Sublime</p>
+              <p class="text-xs mt-1">Ganti file: <code class="bg-gray-100 px-1 rounded">public/images/pricelist-digital.jpg</code></p>
+            </div>
+          </div>
+          <!-- Slot 2: Screen Printing -->
+          <div class="rounded-2xl border-2 border-dashed border-gray-300 bg-white aspect-[3/4] flex flex-col items-center justify-center gap-3 text-gray-400 hover:border-navy hover:text-navy transition-colors p-6 text-center">
+            <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <p class="font-semibold text-sm">Pricelist Screen Printing</p>
+              <p class="text-xs mt-1">Ganti file: <code class="bg-gray-100 px-1 rounded">public/images/pricelist-screen.jpg</code></p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-xs text-gray-400 mt-6">
+          Placeholder di atas akan diganti gambar pricelist sesudah file tersedia.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy py-14">
+      <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ada Pertanyaan tentang Harga?</h2>
+        <p class="text-cream/80 text-sm mb-8">
+          Hubungi kami langsung untuk penawaran khusus, harga volume besar, atau konsultasi jenis kain yang paling sesuai kebutuhan Anda.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+ingin+tanya+tentang+harga+dan+penawaran+printing."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Tanya Harga via WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton message="Halo+Adiya+Printex,+saya+ingin+tanya+tentang+harga+dan+penawaran+printing." />
+</BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target!;
+
+      tabs.forEach((t) => {
+        t.classList.remove('border-navy', 'text-navy');
+        t.classList.add('border-transparent', 'text-gray-500');
+      });
+      tab.classList.add('border-navy', 'text-navy');
+      tab.classList.remove('border-transparent', 'text-gray-500');
+
+      panels.forEach((p) => p.classList.add('hidden'));
+      document.getElementById(target)?.classList.remove('hidden');
+    });
+  });
+</script>

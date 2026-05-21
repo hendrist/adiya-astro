@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const valueProps = [
+  {
+    title: 'Kualitas Premium',
+    description: 'Kami menggunakan bahan baku pilihan dan mesin terkini untuk menghasilkan cetakan yang tajam, warna yang hidup, dan hasil yang tahan lama.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+  },
+  {
+    title: 'MOQ Rendah',
+    description: 'Tidak perlu pesan dalam jumlah besar. Kami melayani pesanan kecil sekalipun, cocok untuk UMKM, brand baru, dan keperluan pribadi.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`,
+  },
+  {
+    title: 'Pengerjaan Cepat',
+    description: 'Proses produksi yang efisien memastikan pesanan selesai tepat waktu. Kami menghargai waktu Anda dan berkomitmen pada jadwal yang disepakati.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  },
+];
+---
+
+<BaseLayout title="Home">
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Hero -->
+    <Hero />
+
+    <!-- Value Propositions -->
+    <section class="bg-white py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Mengapa Adiya Printex?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">
+            Tiga Alasan Pelanggan Memilih Kami
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {valueProps.map((item) => (
+            <div class="text-center p-7 rounded-2xl bg-cream/40 hover:bg-cream transition-colors duration-300">
+              <div class="w-14 h-14 bg-navy rounded-xl flex items-center justify-center text-gold mx-auto mb-5">
+                <Fragment set:html={item.icon} />
+              </div>
+              <h3 class="text-lg font-bold text-navy mb-3">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <hr class="border-gray-100" />
+    </div>
+
+    <!-- Layanan -->
+    <section id="layanan" class="bg-white py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Apa yang Kami Tawarkan</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy">Layanan Kami</h2>
+          <p class="mt-4 text-gray-500 max-w-lg mx-auto text-sm sm:text-base">
+            Dua layanan printing utama yang siap memenuhi kebutuhan kain dan hijab custom Anda.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <ServiceCard
+            title="Digital Sublime Printing"
+            description="Cetak kain dengan teknologi digital sublimasi. Hasil warna tajam, detail tinggi, dan tahan lama — ideal untuk hijab motif dan kain fashion."
+            href="/services/digital-sublime"
+            features={[
+              'Cocok untuk hijab & kain motif',
+              'Warna tajam & tahan lama',
+              'MOQ mulai 5 pcs',
+              'Proses 5–7 hari kerja',
+            ]}
+            highlight={true}
+          >
+            <span slot="icon">🎨</span>
+          </ServiceCard>
+
+          <ServiceCard
+            title="Manual Screen Printing"
+            description="Sablon manual dengan hasil solid dan awet. Pilihan tepat untuk kaos, seragam, dan merchandise dengan desain warna terbatas."
+            href="/services/manual-screen-printing"
+            features={[
+              'Hasil solid & tahan lama',
+              'Cocok untuk kaos & seragam',
+              'MOQ fleksibel',
+              'Harga kompetitif',
+            ]}
+          >
+            <span slot="icon">🖨️</span>
+          </ServiceCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Penutup -->
+    <section class="bg-navy py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+          Siap Mulai Mencetak?
+        </h2>
+        <p class="text-cream/80 max-w-lg mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+          Konsultasikan kebutuhan Anda dengan kami sekarang. Tim kami siap
+          membantu dari desain hingga hasil jadi.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+ingin+konsultasi+dan+pesan+printing."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+            </svg>
+            Chat WhatsApp Sekarang
+          </a>
+          <a
+            href="/pricelist"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-cream/40 text-cream font-semibold rounded-lg hover:border-cream hover:bg-white/5 transition-all"
+          >
+            Lihat Pricelist
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>

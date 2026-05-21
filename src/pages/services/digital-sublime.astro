@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+const fabrics = [
+  { name: 'Hijab Poly PE', unit: 'pcs', size: '110×110 cm', price: 45000, moq: 5 },
+  { name: 'Hijab Voal Signature', unit: 'pcs', size: '110×110 cm', price: 65000, moq: 5 },
+  { name: 'BSY / Besway', unit: 'm²', size: 'Per meter persegi', price: 70000, moq: 5 },
+  { name: 'Dobby', unit: 'm', size: 'Per meter lari', price: 75000, moq: 5 },
+  { name: 'Toyobo', unit: 'm', size: 'Per meter lari', price: 67000, moq: 5 },
+  { name: 'Ero Golden', unit: 'm', size: 'Per meter lari', price: 70000, moq: 5 },
+  { name: 'Oxford', unit: 'm', size: 'Per meter lari', price: 75000, moq: 5 },
+];
+
+const advantages = [
+  { title: 'Warna Tajam & Hidup', desc: 'Teknologi sublimasi menghasilkan warna yang sangat tajam dengan saturasi tinggi, tidak kusam.' },
+  { title: 'Gradasi Sempurna', desc: 'Mampu mereproduksi gradasi warna halus dan detail desain yang rumit dengan akurat.' },
+  { title: 'Tidak Mudah Luntur', desc: 'Tinta menyerap ke dalam serat kain, bukan sekadar menempel di permukaan — lebih tahan lama.' },
+  { title: 'Bebas MOQ Besar', desc: 'Mulai dari 5 pcs sudah bisa cetak. Cocok untuk uji coba desain atau brand baru.' },
+];
+
+const steps = [
+  { no: '01', title: 'Kirim Desain', desc: 'Kirimkan file desain Anda (AI, CDR, PNG HD) via WhatsApp atau email.' },
+  { no: '02', title: 'Konfirmasi & Pembayaran', desc: 'Kami kirimkan mockup digital untuk persetujuan, lalu DP sebelum produksi dimulai.' },
+  { no: '03', title: 'Produksi', desc: 'Proses cetak berlangsung 5–7 hari kerja setelah DP diterima.' },
+  { no: '04', title: 'Pengiriman', desc: 'Barang siap dikirim ke seluruh Indonesia atau diambil langsung di Makassar.' },
+];
+
+const formatRupiah = (n: number) =>
+  'Rp ' + n.toLocaleString('id-ID');
+---
+
+<BaseLayout
+  title="Digital Sublime Printing"
+  description="Layanan Digital Sublime Printing untuk hijab dan kain motif di Makassar. MOQ mulai 5 pcs, warna tajam, proses 5–7 hari kerja."
+>
+  <Header />
+
+  <main class="flex-1">
+
+    <!-- Page Header -->
+    <section class="bg-navy pt-12 pb-20 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <div class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-white/5"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Breadcrumb -->
+        <nav class="text-cream/50 text-sm mb-6 flex items-center gap-2">
+          <a href="/" class="hover:text-cream transition-colors">Beranda</a>
+          <span>/</span>
+          <span class="text-cream">Digital Sublime Printing</span>
+        </nav>
+        <div class="max-w-2xl">
+          <span class="inline-block bg-gold/20 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+            Layanan Unggulan
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Digital Sublime<br />Printing
+          </h1>
+          <p class="text-cream/80 text-base sm:text-lg leading-relaxed">
+            Teknologi cetak digital berbasis sublimasi yang menghasilkan warna
+            tajam, gradasi sempurna, dan tahan lama — ideal untuk hijab motif
+            dan kain fashion custom.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">MOQ mulai 5 pcs</span>
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">5–7 hari kerja</span>
+            <span class="bg-white/10 text-cream text-sm px-4 py-1.5 rounded-full border border-white/20">Warna tajam & tahan lama</span>
+          </div>
+        </div>
+      </div>
+      <!-- Wave -->
+      <div class="absolute bottom-0 left-0 w-full" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-10 text-center">
+          Keunggulan Digital Sublime
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {advantages.map((item) => (
+            <div class="p-6 rounded-2xl bg-cream/40 hover:bg-cream transition-colors duration-300">
+              <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center mb-4">
+                <span class="text-gold font-bold text-lg">✦</span>
+              </div>
+              <h3 class="font-bold text-navy mb-2">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabel Harga -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-3">Jenis Kain & Harga</h2>
+          <p class="text-gray-500 text-sm">Semua harga belum termasuk ongkos kirim. MOQ berlaku per jenis kain.</p>
+        </div>
+
+        <!-- Desktop table -->
+        <div class="hidden sm:block overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <table class="w-full text-sm">
+            <thead class="bg-navy text-cream">
+              <tr>
+                <th class="text-left px-6 py-4 font-semibold">Jenis Kain</th>
+                <th class="text-center px-6 py-4 font-semibold">Ukuran / Satuan</th>
+                <th class="text-center px-6 py-4 font-semibold">MOQ</th>
+                <th class="text-right px-6 py-4 font-semibold">Harga</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              {fabrics.map((f, i) => (
+                <tr class={`hover:bg-cream/30 transition-colors ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
+                  <td class="px-6 py-4 font-medium text-navy">{f.name}</td>
+                  <td class="px-6 py-4 text-center text-gray-600">{f.size}</td>
+                  <td class="px-6 py-4 text-center text-gray-600">{f.moq} {f.unit}</td>
+                  <td class="px-6 py-4 text-right font-bold text-navy">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="sm:hidden space-y-3">
+          {fabrics.map((f) => (
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-navy">{f.name}</h3>
+                <span class="font-bold text-navy text-right">{formatRupiah(f.price)}<span class="text-gray-400 font-normal text-xs">/{f.unit}</span></span>
+              </div>
+              <div class="flex gap-4 text-sm text-gray-500">
+                <span>MOQ: {f.moq} {f.unit}</span>
+                <span>·</span>
+                <span>{f.size}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-center text-xs text-gray-400 mt-4">
+          * Harga sewaktu-waktu dapat berubah. Hubungi kami untuk konfirmasi harga terkini.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proses Pengerjaan -->
+    <section class="bg-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-12 text-center">
+          Proses Pengerjaan
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, i) => (
+            <div class="relative flex flex-col items-center text-center">
+              {/* Connector line (desktop) */}
+              {i < steps.length - 1 && (
+                <div class="hidden lg:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px bg-gray-200 -z-0"></div>
+              )}
+              <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center text-gold font-bold text-lg mb-4 z-10 shrink-0 shadow-md">
+                {step.no}
+              </div>
+              <h3 class="font-bold text-navy mb-2">{step.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-navy py-14 sm:py-20">
+      <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+          Siap Cetak Kain Anda?
+        </h2>
+        <p class="text-cream/80 text-sm sm:text-base mb-8">
+          Konsultasikan desain dan kebutuhan Anda sekarang. Kami siap membantu dari pemilihan kain hingga hasil jadi.
+        </p>
+        <a
+          href="https://wa.me/62811142111?text=Halo+Adiya+Printex,+saya+tertarik+dengan+layanan+Digital+Sublime+Printing.+Boleh+saya+konsultasi%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-navy font-bold rounded-lg hover:bg-gold/90 transition-all hover:scale-105 shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.072 23.927l6.235-1.435A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.017-1.381l-.36-.214-3.7.851.92-3.601-.235-.371A9.795 9.795 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+          </svg>
+          Konsultasi via WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <WhatsAppButton message="Halo+Adiya+Printex,+saya+tertarik+dengan+layanan+Digital+Sublime+Printing.+Boleh+saya+konsultasi%3F" />
+</BaseLayout>
